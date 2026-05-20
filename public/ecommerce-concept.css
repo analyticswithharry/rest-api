@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+:root {
+  --bg: #faf9f5;
+  --bg-soft: #f2efe7;
+  --ink: #111;
+  --ink-soft: #6f6b63;
+  --accent: #ff5e3a;
+  --card-border: #e5e0d4;
+  --ok: #166534;
+  --err: #b91c1c;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+.ambient {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 360px;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 180, 150, 0.3) 0%,
+    rgba(255, 180, 150, 0.1) 35%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--card-border);
+  display: grid;
+  gap: 10px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -0.02em;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 11px;
+}
+
+.hero-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.back-link,
+.chip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #1c3f96;
+  border: 1px solid #d6d1c4;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.chip-link.active {
+  color: #fff;
+  background: linear-gradient(180deg, #1d1d1d 0%, #0f0f0f 100%);
+  border-color: #171717;
+}
+
+.layout,
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding: 24px 32px 36px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.card,
+.product-card {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 14px 34px rgba(25, 25, 25, 0.08);
+}
+
+.card h2,
+.product-card h3 {
+  margin: 0 0 8px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 8px;
+  background: linear-gradient(180deg, #1d1d1d 0%, #0f0f0f 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.status {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd8ca;
+  background: #fff;
+}
+
+.status-loading {
+  color: #5b647b;
+  border-color: #d2dae8;
+  background: #f6f8fc;
+}
+
+.status-success {
+  color: var(--ok);
+  border-color: #b8e4c8;
+  background: #edf9f0;
+}
+
+.status-error {
+  color: var(--err);
+  border-color: #f4c7c7;
+  background: #fef1f1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.product-card {
+  overflow: hidden;
+}
+
+.product-media,
+.skeleton-media {
+  width: 100%;
+  height: 148px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.product-media {
+  object-fit: cover;
+  border: 1px solid #e8e2d6;
+}
+
+.meta {
+  color: var(--ink-soft);
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.price {
+  font-weight: 800;
+  color: #1f7a3f;
+}
+
+.mock-btn {
+  display: inline-block;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid #d5d0c2;
+  padding: 8px 11px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.skeleton-box {
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e4dfd2 25%, #efeadd 50%, #e4dfd2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  margin-bottom: 10px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 70%;
+}
+
+.skeleton-line {
+  height: 14px;
+  width: 100%;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-price {
+  height: 20px;
+  width: 35%;
+}
+
+.skeleton-button {
+  height: 34px;
+  width: 50%;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero,
+  .layout,
+  .page-content {
+    padding: 18px;
+  }
+}

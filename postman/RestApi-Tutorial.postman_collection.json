@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "16d1e1d4-4f20-4f9a-8c77-8d4e7f93e2dd",
+    "name": "REST API Tutorial - Node.js Products",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/health",
+          "host": ["{{base_url}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Seed Data",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/seed",
+          "host": ["{{base_url}}"],
+          "path": ["api", "seed"]
+        }
+      }
+    },
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/products?limit=10&page=1&sort=created_at&order=desc",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "sort",
+              "value": "created_at"
+            },
+            {
+              "key": "order",
+              "value": "desc"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Product By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/products/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"API Design Book\",\n  \"category\": \"books\",\n  \"price\": 19.99,\n  \"description\": \"Beginner to advanced REST design\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/products",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products"]
+        }
+      }
+    },
+    {
+      "name": "Replace Product (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"API Design Book - 2nd Edition\",\n  \"category\": \"books\",\n  \"price\": 24.99,\n  \"description\": \"Updated full resource\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/products/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Product Price (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 17.49\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/products/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/products/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "products", "1"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ]
+}

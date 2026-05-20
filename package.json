@@ -1,0 +1,32 @@
+{
+  "name": "rest-api-tutorial-nodejs",
+  "version": "1.0.0",
+  "description": "Beginner-friendly REST API tutorial with Node.js, Express, SQLite, Postman, and frontend demo.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/script.js",
+    "test": "jest --runInBand"
+  },
+  "keywords": [
+    "rest-api",
+    "nodejs",
+    "express",
+    "sqlite",
+    "postman",
+    "tutorial"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0",
+    "supertest": "^7.1.1"
+  }
+}

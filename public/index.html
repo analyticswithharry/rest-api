@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic metadata for encoding and responsive rendering -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST API Learning Lab (Node.js)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main stylesheet for UI design -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+
+    <!-- Top header: app title + quick DB seed action -->
+    <header class="site-header">
+      <div>
+        <h1>REST API Store Lab</h1>
+        <p>Node.js + Express + SQLite + Pexels + Transfer APIs</p>
+      </div>
+      <button id="seedBtn">Insert Sample Data</button>
+    </header>
+
+    <main>
+      <!-- Create form section: demonstrates POST /api/products -->
+      <section class="card">
+        <h2>Create Product (POST)</h2>
+        <form id="createForm">
+          <input type="text" id="name" placeholder="Name" required />
+          <input type="text" id="category" placeholder="Category" required />
+          <input
+            type="number"
+            id="price"
+            placeholder="Price"
+            step="0.01"
+            min="0"
+            required
+          />
+          <textarea id="description" placeholder="Description"></textarea>
+          <button type="submit">Create Product</button>
+        </form>
+      </section>
+
+      <!-- Listing section: demonstrates GET /api/products with search/sort -->
+      <section class="card">
+        <h2>Products (GET)</h2>
+        <div class="filters">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search by name or description"
+          />
+          <select id="sort">
+            <option value="created_at:desc">Newest</option>
+            <option value="price:asc">Price Low → High</option>
+            <option value="price:desc">Price High → Low</option>
+            <option value="name:asc">Name A → Z</option>
+          </select>
+          <button id="loadBtn">Load Products</button>
+        </div>
+        <div id="products"></div>
+      </section>
+
+      <!-- Debug section: prints API responses/errors for learning and troubleshooting -->
+      <section class="card">
+        <h2>API Response Console</h2>
+        <pre id="output">Ready...</pre>
+      </section>
+
+      <!-- Transfer section: upload media/docs and generate backups/logs -->
+      <section class="card">
+        <h2>Transfer Center (Photo / Video / Document / Logs / Backup)</h2>
+        <form id="uploadForm">
+          <input id="uploadFile" type="file" required />
+          <button type="submit">Upload File</button>
+        </form>
+
+        <div class="transfer-actions">
+          <button id="refreshFilesBtn" type="button">
+            Refresh Uploaded Files
+          </button>
+          <button id="createBackupBtn" type="button">Create DB Backup</button>
+          <button id="loadBackupsBtn" type="button">Load Backups</button>
+          <button id="loadLogsBtn" type="button">Load Logs</button>
+        </div>
+
+        <h3>Uploaded Files</h3>
+        <ul id="uploadedFiles" class="mono-list"></ul>
+
+        <h3>Backups</h3>
+        <ul id="backupFiles" class="mono-list"></ul>
+
+        <h3>Recent Logs</h3>
+        <pre id="logsOutput">No logs loaded yet...</pre>
+      </section>
+
+      <!-- Concept section: separate pages for before/after loading ecommerce products -->
+      <section class="card">
+        <h2>E-commerce Loading Concept (Separate Pages)</h2>
+        <p>
+          Learn UI states using dedicated pages: one shows the "before loading"
+          skeleton state and another shows the "after loading" product state.
+        </p>
+        <a href="/ecommerce-concept.html">Open Concept Demo Pages</a>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Frontend logic that connects UI to backend API -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Loading Concept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ecommerce-concept.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header class="hero">
+      <h1>E-commerce Product Loading Concept</h1>
+      <p>Separate pages to understand UI state transitions clearly.</p>
+      <div class="hero-links">
+        <a class="back-link" href="/">← REST API Learning Lab</a>
+        <a class="chip-link active" href="/ecommerce-concept.html">Concept</a>
+        <a class="chip-link" href="/ecommerce-before-loading.html">Before</a>
+        <a class="chip-link" href="/ecommerce-after-loading.html">After</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <article class="card">
+        <h2>1) Before Loading State</h2>
+        <p>
+          This page shows skeleton cards and a loading message, similar to what
+          users see immediately when they open a product listing page.
+        </p>
+        <a class="button" href="/ecommerce-before-loading.html"
+          >Open Before Loading Page</a
+        >
+      </article>
+
+      <article class="card">
+        <h2>2) After Loading State</h2>
+        <p>
+          This page fetches real products from the API and renders product cards
+          after data arrives.
+        </p>
+        <a class="button" href="/ecommerce-after-loading.html"
+          >Open After Loading Page</a
+        >
+      </article>
+
+      <article class="card">
+        <h2>Why this matters for UX</h2>
+        <p>
+          A clean loading state reduces perceived wait time, and a polished
+          loaded state improves trust, especially for e-commerce product grids.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

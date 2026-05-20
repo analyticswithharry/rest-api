@@ -1,0 +1,250 @@
+/* Global reset + font stack for consistent cross-platform rendering */
+* {
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+:root {
+  --bg: #faf9f5;
+  --bg-soft: #f1eee6;
+  --ink: #111;
+  --ink-soft: #6f6b63;
+  --accent: #ff5e3a;
+  --card-border: #e5e0d4;
+}
+
+/* Page background and base text color */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ambient {
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 420px;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 180, 150, 0.3) 0%,
+    rgba(255, 180, 150, 0.09) 35%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header layout: title, subtitle, and seed button */
+.site-header {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main title styling */
+.site-header h1 {
+  margin: 0;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle styling */
+.site-header p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Responsive card grid for content sections */
+main {
+  padding: 24px 32px 42px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  position: relative;
+  z-index: 1;
+}
+
+/* Shared card container styling */
+.card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 14px 34px rgba(25, 25, 25, 0.08);
+}
+
+/* Section heading */
+h2 {
+  margin-top: 0;
+  font-size: 19px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Default link styling for dark UI */
+a {
+  color: #1f4fbf;
+}
+
+a:hover {
+  color: #153992;
+}
+
+/* Shared form control appearance */
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #d9d4c6;
+  background: #fff;
+  color: var(--ink);
+}
+
+/* Primary button appearance */
+button {
+  cursor: pointer;
+  background: linear-gradient(180deg, #1d1d1d 0%, #0f0f0f 100%);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Button hover feedback */
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Filter controls stacked with spacing */
+.filters {
+  display: grid;
+  gap: 8px;
+}
+
+/* Product card used in dynamic list rendering */
+.product {
+  border: 1px solid #ddd8ca;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.product-image {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-body {
+  padding: 12px;
+}
+
+/* Product title spacing */
+.product h3 {
+  margin: 0 0 8px;
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+/* Product metadata (category, price, id) */
+.product .meta {
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Action buttons row (PATCH + DELETE) */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Remove inherited top margin from grouped action buttons */
+.actions button {
+  margin-top: 0;
+}
+
+/* API response console: fixed height scrollable panel */
+#output {
+  min-height: 260px;
+  max-height: 420px;
+  overflow: auto;
+  background: #151515;
+  border: 1px solid #343434;
+  border-radius: 12px;
+  padding: 12px;
+  color: #9ee7a7;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+#logsOutput {
+  min-height: 180px;
+  max-height: 320px;
+  overflow: auto;
+  background: #151515;
+  border: 1px solid #343434;
+  border-radius: 12px;
+  padding: 12px;
+  color: #ffd8a8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+.transfer-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.mono-list {
+  margin-top: 8px;
+  max-height: 180px;
+  overflow: auto;
+  padding-left: 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+.mono-list li {
+  margin: 6px 0;
+}
+
+.mono-list a {
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 22px;
+  }
+
+  main {
+    padding: 18px;
+  }
+}
